@@ -35,67 +35,67 @@ function generatePassword(){
 
   var specialChar = confirm("Do you want special characters in your password?");
 
-  // min char length for password
-  var minLength = 8;
+
+  var numberHolder = []
+  var lowerCharHolder = []
+  var upperCharHolder = []
+  var specialCharHolder = []
+
+  // conditonal statements
+  if (numbers === true) {
+    
+  }
+
+  if (lowerChar === true) {
+
+  }
+
+  if (upperChar === true) {
+
+  }
+
+  if (specialChar === true) {
+
+  }
 
 
+  for (var i = 0; i < passLength; i++) {
+    tempPassword.push()
+  }
 
-  // // conditonal statements
-  // if (numbers === true) {
 
-  // }
+  console.log(getNum());
+  console.log(getLowerChar());
+  console.log(getUpperChar());
+  console.log(getSpecialNum());
 
-  // if (lowerChar === true) {
+  return String.toString(tempPassword)
+};
 
-  // }
 
-  // if (upperChar === true) {
+ 
+// Change
+  function getNum() {
+    return getRandomInt(number.length)
+  };
 
-  // }
+  function getLowerChar() {
+    var holder = getRandomInt(lowerCase.length)
+    return lowerCase[holder]
+  };
 
-  // if (specialChar === true) {
-
-  // }
+  function getUpperChar() {
+    var holder = getRandomInt(lowerCase.length)
+    var upperValue = lowerCase[holder];
+    return upperValue.toUpperCase(); 
+  };
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
-  // console.error(getRandomInt(10))
-
-  // var tempNumPass = getRandomInt(minLength);
-
-  for (var i = 0; i < minLength; i++) {
-    console.error(minLength)
-    var numberHolder = getRandomInt(number.length);
-    tempPassword.push(number[numberHolder])
-    var charHolder = getRandomInt(specialNum.length);
-    tempPassword.push(specialNum[charHolder]);
-    console.log(tempPassword)
-
+  //Gets random char from an array
+  function getSpecialNum() {
+    var holder = getRandomInt(specialNum.length);
+    return specialNum[holder]
   }
-  
-
-  return tempPassword;
-};
-
- 
-  function getNum() {
-    return String.fromCharCode(Math.floor(Math.random() * 8 + 40));
-  };
-
-  function getLowerChar() {
-    return String.fromCharCode(Math.floor(Math.random() * 20 + 60));
-  };
-
-  function getUpperChar() {
-    return String.fromCharCode(Math.floor(Math.random() * 26 + 60));
-  };
-
-  //function specialChar() {
-   // return String.fromCharCode(Math.floor(Math.random() * ))
-  //};
-
-  function checkLength (pass) {
-    
-  } 
