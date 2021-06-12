@@ -24,14 +24,17 @@ function generatePassword(){
   var tempPassword = [];
 
   // prompts in regards to passwords  decisions 
-  var passLength = Number(prompt("How many characters would you like your password to be?"));
-  while (isNaN(length) || length < 8 || length > 128) length = Number(prompt("Length must be between 8-128 characters. How many characters would you like your password to be?"));
-  
+  var passLength = parseInt(prompt("How many characters would you like your password to be?"));
+  if(passLength <8 || passLength>128){
+    alert('too small');
+    return;
+  }
+
   var numbers = confirm("Do you want numbers in your password?");
 
   var lowerChar = confirm("Do you want lowercases in your password?");
 
-  var upperChar = confirm("Do you want uppercases in your password?");
+  // var upperChar = confirm("Do you want uppercases in your password?");
 
   var specialChar = confirm("Do you want special characters in your password?");
 
@@ -41,61 +44,53 @@ function generatePassword(){
   var upperCharHolder = []
   var specialCharHolder = []
 
+  var userType = [];
+  var gurantee = [];
+
+
   // conditonal statements
   if (numbers === true) {
+    userType = userType.concat(number);
+    // let a = getRandomInt(number)
+   gurantee.push(getRandomInt(number))
     
   }
 
   if (lowerChar === true) {
+    userType = userType.concat(lowerCase);
+    // let b = getRandomInt(lowerCase);
+    // console.log(b)
+    gurantee.push(getRandomInt(lowerCase));
 
   }
 
-  if (upperChar === true) {
-
-  }
+  // if (upperChar === true) {
+  //   userType = userType.concat(lowerCase)
+    
+  // }
 
   if (specialChar === true) {
+    userType = userType.concat(specialNum)
+    gurantee.push(getRandomInt(specialNum))
 
   }
 
+for (let i = 0; i < passLength; i++) {
+   let rand = getRandomInt(userType);
+    tempPassword.push(rand)
+};
 
-  for (var i = 0; i < passLength; i++) {
-    tempPassword.push()
-  }
-
-
-  console.log(getNum());
-  console.log(getLowerChar());
-  console.log(getUpperChar());
-  console.log(getSpecialNum());
-
-  return String.toString(tempPassword)
+for (let i = 0; i < gurantee.length; i++) {
+  tempPassword[i] = gurantee[i]
+  
 };
 
 
- 
-// Change
-  function getNum() {
-    return getRandomInt(number.length)
-  };
+  return tempPassword.join('')
+};
 
-  function getLowerChar() {
-    var holder = getRandomInt(lowerCase.length)
-    return lowerCase[holder]
-  };
 
-  function getUpperChar() {
-    var holder = getRandomInt(lowerCase.length)
-    var upperValue = lowerCase[holder];
-    return upperValue.toUpperCase(); 
-  };
-
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-
-  //Gets random char from an array
-  function getSpecialNum() {
-    var holder = getRandomInt(specialNum.length);
-    return specialNum[holder]
+  function getRandomInt(arr) {
+    let num = Math.floor(Math.random() * arr.length);
+    return arr[num];
   }
